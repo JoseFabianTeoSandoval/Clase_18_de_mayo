@@ -30,5 +30,10 @@ namespace Clase_18_de_mayo
                 MessageBox.Show("nel paste");
             }
         }
+
+        private void cargar_Click(object sender, EventArgs e)
+        {
+            dataGridViewPersonajes.DataSource = personaje.LeerPersonajes();
+        }
     }
 }
