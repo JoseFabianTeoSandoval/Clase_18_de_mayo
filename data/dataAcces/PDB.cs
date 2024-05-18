@@ -45,5 +45,22 @@ namespace Clase_18_de_mayo.data.dataAcces
 
             return personajes;
         }
+        public int CrearPersonaje(string nombre, string raza, int nivelPoder)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string sql = "INSERT INTO personajes_dragon_ball (nombre, raza, nivel_poder) VALUES (@nombre, @raza, @nivelPoder)";
+                using (MySqlCommand command = new MySqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@nombre", nombre);
+                    command.Parameters.AddWithValue("@raza", raza);
+                    command.Parameters.AddWithValue("@nivelPoder", nivelPoder);
+
+                    return command.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

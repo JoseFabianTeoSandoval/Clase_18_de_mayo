@@ -31,12 +31,22 @@
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridViewPersonajes = new System.Windows.Forms.DataGridView();
             this.cargar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.numericUpDownNiveldepoder = new System.Windows.Forms.NumericUpDown();
+            this.textBoxRaza = new System.Windows.Forms.TextBox();
+            this.textBoxNombre = new System.Windows.Forms.TextBox();
+            this.textBoxid = new System.Windows.Forms.TextBox();
+            this.buttoninsertar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPersonajes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNiveldepoder)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(207, 69);
+            this.button1.Location = new System.Drawing.Point(907, 82);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -64,18 +74,103 @@
             this.cargar.UseVisualStyleBackColor = true;
             this.cargar.Click += new System.EventHandler(this.cargar_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(110, 39);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(21, 20);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "id";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(110, 82);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 20);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Nombre";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(110, 134);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(47, 20);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Raza";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(110, 183);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(109, 20);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Nivel de poder";
+            // 
+            // numericUpDownNiveldepoder
+            // 
+            this.numericUpDownNiveldepoder.Location = new System.Drawing.Point(280, 177);
+            this.numericUpDownNiveldepoder.Name = "numericUpDownNiveldepoder";
+            this.numericUpDownNiveldepoder.Size = new System.Drawing.Size(120, 26);
+            this.numericUpDownNiveldepoder.TabIndex = 7;
+            // 
+            // textBoxRaza
+            // 
+            this.textBoxRaza.Location = new System.Drawing.Point(280, 127);
+            this.textBoxRaza.Name = "textBoxRaza";
+            this.textBoxRaza.Size = new System.Drawing.Size(294, 26);
+            this.textBoxRaza.TabIndex = 8;
+            // 
+            // textBoxNombre
+            // 
+            this.textBoxNombre.Location = new System.Drawing.Point(280, 75);
+            this.textBoxNombre.Name = "textBoxNombre";
+            this.textBoxNombre.Size = new System.Drawing.Size(294, 26);
+            this.textBoxNombre.TabIndex = 9;
+            // 
+            // textBoxid
+            // 
+            this.textBoxid.Location = new System.Drawing.Point(280, 32);
+            this.textBoxid.Name = "textBoxid";
+            this.textBoxid.Size = new System.Drawing.Size(294, 26);
+            this.textBoxid.TabIndex = 10;
+            // 
+            // buttoninsertar
+            // 
+            this.buttoninsertar.Location = new System.Drawing.Point(634, 13);
+            this.buttoninsertar.Name = "buttoninsertar";
+            this.buttoninsertar.Size = new System.Drawing.Size(98, 45);
+            this.buttoninsertar.TabIndex = 11;
+            this.buttoninsertar.Text = "Crear";
+            this.buttoninsertar.UseVisualStyleBackColor = true;
+            this.buttoninsertar.Click += new System.EventHandler(this.buttoninsertar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1029, 555);
+            this.Controls.Add(this.buttoninsertar);
+            this.Controls.Add(this.textBoxid);
+            this.Controls.Add(this.textBoxNombre);
+            this.Controls.Add(this.textBoxRaza);
+            this.Controls.Add(this.numericUpDownNiveldepoder);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.cargar);
             this.Controls.Add(this.dataGridViewPersonajes);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPersonajes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNiveldepoder)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -84,6 +179,15 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridViewPersonajes;
         private System.Windows.Forms.Button cargar;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown numericUpDownNiveldepoder;
+        private System.Windows.Forms.TextBox textBoxRaza;
+        private System.Windows.Forms.TextBox textBoxNombre;
+        private System.Windows.Forms.TextBox textBoxid;
+        private System.Windows.Forms.Button buttoninsertar;
     }
 }
 

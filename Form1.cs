@@ -35,5 +35,21 @@ namespace Clase_18_de_mayo
         {
             dataGridViewPersonajes.DataSource = personaje.LeerPersonajes();
         }
+
+        private void buttoninsertar_Click(object sender, EventArgs e)
+        {
+            string Nombre = textBoxNombre.Text;
+            string Raza = textBoxRaza.Text;
+            int Niveldepoder = (int)numericUpDownNiveldepoder.Value;
+            int Respuesta = personaje.CrearPersonaje(Nombre, Raza, Niveldepoder);
+            if (Respuesta > 0 )
+            {
+                MessageBox.Show("Se creo correctamente");
+                dataGridViewPersonajes.DataSource = personaje.LeerPersonajes();
+            } else
+            {
+                MessageBox.Show("Hubo un error al crearlo");
+            }
+        }
     }
 }
