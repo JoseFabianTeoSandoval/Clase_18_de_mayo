@@ -13,6 +13,18 @@ namespace Clase_18_de_mayo
 {
     public partial class Form1 : Form
     {
+        // Lista de razas
+        private string[] razasDragonBall = {
+            "Android",
+            "Bio-Android",
+            "Humana",
+            "Humano",
+            "Majin",
+            "Namekuseijin",
+            "Saiyajin",
+            "Saiyajin/Humano",
+            "Saiyajin/Saiyajin"
+        };
         private PDB personaje;
         public Form1()
         {
@@ -39,6 +51,7 @@ namespace Clase_18_de_mayo
         private void buttoninsertar_Click(object sender, EventArgs e)
         {
             string Nombre = textBoxNombre.Text;
+            //string Raza = comboBoxRaza.Text;
             string Raza = textBoxRaza.Text;
             int Niveldepoder = (int)numericUpDownNiveldepoder.Value;
             int Respuesta = personaje.CrearPersonaje(Nombre, Raza, Niveldepoder);
@@ -51,5 +64,12 @@ namespace Clase_18_de_mayo
                 MessageBox.Show("Hubo un error al crearlo");
             }
         }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // Llenar el ComboBox con las razas
+            comboBoxRaza.Items.AddRange(razasDragonBall);
+        }
+
+
     }
 }

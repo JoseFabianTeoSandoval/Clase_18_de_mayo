@@ -40,24 +40,25 @@
             this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.textBoxid = new System.Windows.Forms.TextBox();
             this.buttoninsertar = new System.Windows.Forms.Button();
+            this.comboBoxRaza = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPersonajes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNiveldepoder)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(907, 82);
+            this.button1.Location = new System.Drawing.Point(616, 177);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(139, 26);
             this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
+            this.button1.Text = "Provar conexion";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridViewPersonajes
             // 
             this.dataGridViewPersonajes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPersonajes.Location = new System.Drawing.Point(22, 221);
+            this.dataGridViewPersonajes.Location = new System.Drawing.Point(45, 306);
             this.dataGridViewPersonajes.Name = "dataGridViewPersonajes";
             this.dataGridViewPersonajes.RowHeadersWidth = 62;
             this.dataGridViewPersonajes.RowTemplate.Height = 28;
@@ -104,7 +105,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(110, 183);
+            this.label4.Location = new System.Drawing.Point(110, 235);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(109, 20);
             this.label4.TabIndex = 6;
@@ -112,7 +113,7 @@
             // 
             // numericUpDownNiveldepoder
             // 
-            this.numericUpDownNiveldepoder.Location = new System.Drawing.Point(280, 177);
+            this.numericUpDownNiveldepoder.Location = new System.Drawing.Point(280, 229);
             this.numericUpDownNiveldepoder.Name = "numericUpDownNiveldepoder";
             this.numericUpDownNiveldepoder.Size = new System.Drawing.Size(120, 26);
             this.numericUpDownNiveldepoder.TabIndex = 7;
@@ -148,11 +149,21 @@
             this.buttoninsertar.UseVisualStyleBackColor = true;
             this.buttoninsertar.Click += new System.EventHandler(this.buttoninsertar_Click);
             // 
+            // comboBoxRaza
+            // 
+            this.comboBoxRaza.FormattingEnabled = true;
+            this.comboBoxRaza.Location = new System.Drawing.Point(280, 177);
+            this.comboBoxRaza.Name = "comboBoxRaza";
+            this.comboBoxRaza.Size = new System.Drawing.Size(121, 28);
+            this.comboBoxRaza.TabIndex = 12;
+            
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1029, 555);
+            this.ClientSize = new System.Drawing.Size(1087, 637);
+            this.Controls.Add(this.comboBoxRaza);
             this.Controls.Add(this.buttoninsertar);
             this.Controls.Add(this.textBoxid);
             this.Controls.Add(this.textBoxNombre);
@@ -188,6 +199,7 @@
         private System.Windows.Forms.TextBox textBoxNombre;
         private System.Windows.Forms.TextBox textBoxid;
         private System.Windows.Forms.Button buttoninsertar;
+        private System.Windows.Forms.ComboBox comboBoxRaza;
     }
 }
 

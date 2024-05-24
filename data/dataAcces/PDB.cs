@@ -62,5 +62,27 @@ namespace Clase_18_de_mayo.data.dataAcces
                 }
             }
         }
+        public DataTable BuscarPersonajePorId(int id)
+        {
+            DataTable personaje = new DataTable();
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string sql = "SELECT * FROM personajes_dragon_ball WHERE id = @id";
+                using (MySqlCommand command = new MySqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@id", id);
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                    {
+                        adapter.Fill(personaje);
+                    }
+                }
+            }
+
+            return personaje;
+        }
     }
 }
