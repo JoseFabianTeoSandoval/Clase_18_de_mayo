@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Clase_18_de_mayo
 {
@@ -70,6 +71,45 @@ namespace Clase_18_de_mayo
             comboBoxRaza.Items.AddRange(razasDragonBall);
         }
 
+        private void buscarPorId()
+        {
+            int idPersonajeABuscar = int.Parse(textBoxid.Text);
 
+            DataTable personajeEncontrado = personaje.BuscarPersonajePorId(idPersonajeABuscar);
+
+            if (personajeEncontrado.Rows.Count > 0)
+            {
+                // El personaje fue encontrado
+                string nombre = personajeEncontrado.Rows[0]["nombre"].ToString();
+                string raza = personajeEncontrado.Rows[0]["raza"].ToString();
+                int nivelPoder = int.Parse(personajeEncontrado.Rows[0]["nivel_poder"].ToString());
+                textBoxNombre.Text = nombre;
+                textBoxRaza.Text = raza;
+                comboBoxRaza.Text = raza;
+                numericUpDownNiveldepoder.Value = nivelPoder;
+            }
+            else
+            {
+                // El personaje no fue encontrado
+                Console.WriteLine("No se encontró el personaje con ID: " + idPersonajeABuscar);
+            }
+        }
+        private void buttonBuscar_Click(object sender, EventArgs e)
+        {
+            buscarPorId(); 
+        }
+
+        private void textBoxid_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBoxid.Text))
+            {
+                MessageBox.Show("Por favor, ingresa un valor en el campo de texto.");
+                textBoxid.Focus(); // Devolver el foco al TextBox
+            }
+            else
+            {
+                buscarPorId();
+            }
+        }
     }
 }

@@ -41,6 +41,7 @@
             this.textBoxid = new System.Windows.Forms.TextBox();
             this.buttoninsertar = new System.Windows.Forms.Button();
             this.comboBoxRaza = new System.Windows.Forms.ComboBox();
+            this.buttonBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPersonajes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNiveldepoder)).BeginInit();
             this.SuspendLayout();
@@ -114,6 +115,11 @@
             // numericUpDownNiveldepoder
             // 
             this.numericUpDownNiveldepoder.Location = new System.Drawing.Point(280, 229);
+            this.numericUpDownNiveldepoder.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
             this.numericUpDownNiveldepoder.Name = "numericUpDownNiveldepoder";
             this.numericUpDownNiveldepoder.Size = new System.Drawing.Size(120, 26);
             this.numericUpDownNiveldepoder.TabIndex = 7;
@@ -138,10 +144,11 @@
             this.textBoxid.Name = "textBoxid";
             this.textBoxid.Size = new System.Drawing.Size(294, 26);
             this.textBoxid.TabIndex = 10;
+            this.textBoxid.Leave += new System.EventHandler(this.textBoxid_Leave);
             // 
             // buttoninsertar
             // 
-            this.buttoninsertar.Location = new System.Drawing.Point(634, 13);
+            this.buttoninsertar.Location = new System.Drawing.Point(639, 235);
             this.buttoninsertar.Name = "buttoninsertar";
             this.buttoninsertar.Size = new System.Drawing.Size(98, 45);
             this.buttoninsertar.TabIndex = 11;
@@ -156,13 +163,23 @@
             this.comboBoxRaza.Name = "comboBoxRaza";
             this.comboBoxRaza.Size = new System.Drawing.Size(121, 28);
             this.comboBoxRaza.TabIndex = 12;
-            
+            // 
+            // buttonBuscar
+            // 
+            this.buttonBuscar.Location = new System.Drawing.Point(639, 32);
+            this.buttonBuscar.Name = "buttonBuscar";
+            this.buttonBuscar.Size = new System.Drawing.Size(98, 43);
+            this.buttonBuscar.TabIndex = 13;
+            this.buttonBuscar.Text = "Buscar";
+            this.buttonBuscar.UseVisualStyleBackColor = true;
+            this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1087, 637);
+            this.Controls.Add(this.buttonBuscar);
             this.Controls.Add(this.comboBoxRaza);
             this.Controls.Add(this.buttoninsertar);
             this.Controls.Add(this.textBoxid);
@@ -200,6 +217,7 @@
         private System.Windows.Forms.TextBox textBoxid;
         private System.Windows.Forms.Button buttoninsertar;
         private System.Windows.Forms.ComboBox comboBoxRaza;
+        private System.Windows.Forms.Button buttonBuscar;
     }
 }
 
