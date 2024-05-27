@@ -19,7 +19,8 @@ namespace Clase_18_de_mayo.data.dataAcces
                 {
                     connection.Open();
                     return true;
-                } catch (Exception ex) 
+                } 
+                catch (Exception ex) 
                 { 
                     return false; 
                 }
@@ -45,18 +46,20 @@ namespace Clase_18_de_mayo.data.dataAcces
 
             return personajes;
         }
-        public int CrearPersonaje(string nombre, string raza, int nivelPoder)
+        public int CrearPersonaje(string nombre, string raza, int nivelPoder, DateTime fechadecreacion, string historia)
         {
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
 
-                string sql = "INSERT INTO personajes_dragon_ball (nombre, raza, nivel_poder) VALUES (@nombre, @raza, @nivelPoder)";
+                string sql = "INSERT INTO personajes_dragon_ball (nombre, raza, nivel_poder, fecha_creacion, historia) VALUES(@nombre, @raza, @nivelPoder, @fechaCreacion, @historia)";
                 using (MySqlCommand command = new MySqlCommand(sql, connection))
                 {
                     command.Parameters.AddWithValue("@nombre", nombre);
                     command.Parameters.AddWithValue("@raza", raza);
                     command.Parameters.AddWithValue("@nivelPoder", nivelPoder);
+                    command.Parameters.AddWithValue("@fechaCreacion", fechadecreacion);
+                    command.Parameters.AddWithValue("@historia", historia);
 
                     return command.ExecuteNonQuery();
                 }
@@ -85,19 +88,20 @@ namespace Clase_18_de_mayo.data.dataAcces
             return personaje;
         }
         // Método para actualizar un personaje
-        public void ActualizarPersonaje(int id, string nombre, string raza, int nivelPoder)
+        public void ActualizarPersonaje(int id, string nombre, string raza, int nivelPoder, string historia)
         {
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
 
-                string sql = "UPDATE personajes_dragon_ball SET nombre = @nombre, raza = @raza, nivel_poder = @nivelPoder WHERE id = @id";
+                string sql = "UPDATE personajes_dragon_ball SET nombre = @nombre, raza = @raza, nivel_poder = @nivelPoder, historia = @historia WHERE id = @id";
                 using (MySqlCommand command = new MySqlCommand(sql, connection))
                 {
                     command.Parameters.AddWithValue("@id", id);
                     command.Parameters.AddWithValue("@nombre", nombre);
                     command.Parameters.AddWithValue("@raza", raza);
                     command.Parameters.AddWithValue("@nivelPoder", nivelPoder);
+                    command.Parameters.AddWithValue("@historia", historia);
 
                     command.ExecuteNonQuery();
                 }

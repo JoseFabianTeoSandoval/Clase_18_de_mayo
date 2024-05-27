@@ -32,18 +32,6 @@ namespace Clase_18_de_mayo
             InitializeComponent();
             personaje = new PDB();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (personaje.Provarconeccion())
-            {
-                MessageBox.Show("si se pudo");
-            }else
-            {
-                MessageBox.Show("nel paste");
-            }
-        }
-
         private void cargar_Click(object sender, EventArgs e)
         {
             dataGridViewPersonajes.DataSource = personaje.LeerPersonajes();
@@ -51,18 +39,22 @@ namespace Clase_18_de_mayo
 
         private void buttoninsertar_Click(object sender, EventArgs e)
         {
-            string Nombre = textBoxNombre.Text;
+            string nombre = textBoxNombre.Text;
             //string Raza = comboBoxRaza.Text;
-            string Raza = textBoxRaza.Text;
-            int Niveldepoder = (int)numericUpDownNiveldepoder.Value;
-            int Respuesta = personaje.CrearPersonaje(Nombre, Raza, Niveldepoder);
-            if (Respuesta > 0 )
+            string raza = textBoxRaza.Text;
+            int niveldepoder = (int)numericUpDownNiveldepoder.Value;
+            DateTime fechadecreacion = dateTimePickerFechadecreacion.Value;
+            string historia = textBoxHistoria.Text;
+
+            int respuesta = personaje.CrearPersonaje(nombre, raza, niveldepoder, fechadecreacion, historia);
+            if (respuesta > 0)
             {
-                MessageBox.Show("Se creo correctamente");
+                MessageBox.Show("Personaje creado correctamente");
                 dataGridViewPersonajes.DataSource = personaje.LeerPersonajes();
-            } else
+            }
+            else
             {
-                MessageBox.Show("Hubo un error al crearlo");
+                MessageBox.Show("Error al crear el personaje");
             }
         }
         private void Form1_Load(object sender, EventArgs e)
@@ -82,11 +74,16 @@ namespace Clase_18_de_mayo
                 // El personaje fue encontrado
                 string nombre = personajeEncontrado.Rows[0]["nombre"].ToString();
                 string raza = personajeEncontrado.Rows[0]["raza"].ToString();
-                int nivelPoder = int.Parse(personajeEncontrado.Rows[0]["nivel_poder"].ToString());
+                int niveldepoder = int.Parse(personajeEncontrado.Rows[0]["nivel_poder"].ToString());
+                DateTime fechadecreacion = DateTime.Parse(personajeEncontrado.Rows[0]["fecha_creacion"].ToString());
+                string historia = personajeEncontrado.Rows[0]["historia"].ToString();
+
                 textBoxNombre.Text = nombre;
                 textBoxRaza.Text = raza;
                 comboBoxRaza.Text = raza;
-                numericUpDownNiveldepoder.Value = nivelPoder;
+                numericUpDownNiveldepoder.Value = niveldepoder;
+                dateTimePickerFechadecreacion.Value = fechadecreacion;
+                textBoxHistoria.Text = historia;
             }
             else
             {
@@ -104,11 +101,75 @@ namespace Clase_18_de_mayo
             if (string.IsNullOrWhiteSpace(textBoxid.Text))
             {
                 MessageBox.Show("Por favor, ingresa un valor en el campo de texto.");
-                textBoxid.Focus(); // Devolver el foco al TextBox
+                textBoxid.Focus(); 
             }
             else
             {
                 buscarPorId();
+            }
+        }
+
+        private void buttonActualizar_Click(object sender, EventArgs e)
+        {
+            string nombre = textBoxNombre.Text;
+            string raza = textBoxRaza.Text;
+            string historia = textBoxHistoria.Text;
+            int niveldepoder = (int)numericUpDownNiveldepoder .Value;
+            if (!string.IsNullOrWhiteSpace(textBoxid.Text))
+            {
+                int id = int.Parse(textBoxid.Text);
+                MessageBox.Show("Actualizo Correctamente");
+                personaje.ActualizarPersonaje(id, nombre, raza, niveldepoder, historia);
+                dataGridViewPersonajes.DataSource = personaje.LeerPersonajes();
+                LimpiarControles();
+            }
+            else
+            {
+                MessageBox.Show("Ingrese la ID del personaje");
+                textBoxid.Focus(); 
+            }
+        }
+        private void LimpiarControles()
+        {
+            textBoxid.Clear();
+            textBoxHistoria.Clear();
+            textBoxNombre.Clear();
+            textBoxRaza.Clear();
+            numericUpDownNiveldepoder .ResetText();
+            comboBoxRaza.ResetText();
+            dataGridViewPersonajes.DataSource = null;
+
+        }
+
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int idPersonajeAEliminar = int.Parse(textBoxid.Text);
+                personaje.EliminarPersonaje(idPersonajeAEliminar);
+                MessageBox.Show("Personaje eliminado correctamente.");
+                LimpiarControles();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al eliminar el personaje: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarControles();
+        }
+
+        private void buttonProvar_Click(object sender, EventArgs e)
+        {
+            if (personaje.Provarconeccion())
+            {
+                MessageBox.Show("si se pudo");
+            }
+            else
+            {
+                MessageBox.Show("nel paste");
             }
         }
     }
